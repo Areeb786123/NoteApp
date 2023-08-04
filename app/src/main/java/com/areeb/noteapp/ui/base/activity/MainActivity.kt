@@ -1,37 +1,31 @@
 package com.areeb.noteapp.ui.base.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.areeb.noteapp.R
-import com.areeb.noteapp.data.models.entitiy.notes.NotesDto
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.areeb.noteapp.data.network.local.DataBase.AppDataBase
+import com.areeb.noteapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var appData: AppDataBase
-
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        get()
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(_binding!!.root)
+        settingUpBottomNavigation()
     }
 
-    private fun dataBaseTest() {
-        val note = NotesDto(id = 0, title = "hai", notes = "my nam is areeb")
-        lifecycleScope.launch {
-            appData.noteDao().addNote(note)
-        }
-    }
-
-    private fun get() {
-        lifecycleScope.launch {
-            Log.e("jj", appData.noteDao().getAllNotes().toString())
-        }
+    private fun settingUpBottomNavigation() {
+        val navHost =
+            supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment?
+        val navController = navHost!!.navController
+        binding.bottomNav.setupWithNavController(navController)
     }
 }
