@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.areeb.noteapp.data.models.entitiy.notes.NotesDto
+import com.areeb.noteapp.data.network.Resources
 
 @Dao
 interface NoteDao {
