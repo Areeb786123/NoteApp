@@ -1,12 +1,15 @@
 package com.areeb.noteapp.ui.detail.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.areeb.noteapp.R
+import androidx.appcompat.app.AppCompatActivity
+import com.areeb.noteapp.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
+    private var _binding: ActivityDetailBinding? = null
+    private val binding get() = _binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        _binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(_binding!!.root)
     }
 }

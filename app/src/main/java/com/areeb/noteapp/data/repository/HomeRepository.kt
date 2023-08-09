@@ -27,6 +27,29 @@ class HomeRepository @Inject constructor(private val appDataBase: AppDataBase) {
     }
 
     suspend fun deleteNote(note: NotesDto) {
-        appDataBase.noteDao().deleteNote(note)
+        try {
+            appDataBase.noteDao().deleteNote(note)
+        } catch (e: Exception) {
+            Log.e("error", e.message.toString())
+        }
+    }
+
+    suspend fun updateNote(note: NotesDto) {
+        try {
+            appDataBase.noteDao().updateNote(note)
+        } catch (e: Exception) {
+            Log.e("error", e.message.toString())
+        }
+    }
+
+    suspend fun getNoteById(noteId: Long): Flow<NotesDto?> {
+        return flow {
+            try {
+                val response = appDataBase.noteDao().getNoteById(noteId)
+                emit(response)
+            } catch (e: Exception) {
+                Log.e("error", e.message.toString())
+            }
+        }.flowOn(Dispatchers.IO)
     }
 }
