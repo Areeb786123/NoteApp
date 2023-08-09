@@ -1,14 +1,25 @@
 package com.areeb.noteapp.ui.home.viewHolder
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.areeb.noteapp.data.models.entitiy.notes.NotesDto
 import com.areeb.noteapp.databinding.ItemsNotesBinding
+import com.areeb.noteapp.ui.common.RecyclerItemClick
 
-class HomeViewHolder(private val binding: ItemsNotesBinding) : ViewHolder(binding.root) {
+class HomeViewHolder(private val binding: ItemsNotesBinding) :
+    ViewHolder(binding.root),
+    View.OnClickListener {
+    init {
+        binding.deleteNoteBtn.setOnClickListener(this)
+    }
 
-    fun bind(item: NotesDto) {
+    private lateinit var noteDto: NotesDto
+    private lateinit var listener: RecyclerItemClick<NotesDto>
+    fun bind(item: NotesDto, itemClick: RecyclerItemClick<NotesDto>) {
+        this.listener = itemClick
+        this.noteDto = item
         settingData(item)
     }
 
@@ -28,6 +39,12 @@ class HomeViewHolder(private val binding: ItemsNotesBinding) : ViewHolder(bindin
                     false,
                 ),
             )
+        }
+    }
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            binding.deleteNoteBtn.id -> listener.onClick(noteDto)
         }
     }
 }

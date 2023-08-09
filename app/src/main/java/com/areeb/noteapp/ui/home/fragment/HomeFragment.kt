@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.areeb.noteapp.data.models.entitiy.notes.NotesDto
 import com.areeb.noteapp.databinding.FragmentHomeBinding
 import com.areeb.noteapp.ui.base.fragment.BaseFragment
 import com.areeb.noteapp.ui.common.DialogCancel
+import com.areeb.noteapp.ui.common.RecyclerItemClick
 import com.areeb.noteapp.ui.home.adapter.HomeAdapter
 import com.areeb.noteapp.ui.home.bottomSheet.AddNoteSheet
 import com.areeb.noteapp.ui.home.viewModel.homeViewModels.HomeViewModels
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.Exception
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -60,7 +61,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, DialogCancel {
             } else {
                 binding.emptyValueAnimation.visibility = View.VISIBLE
             }
-            settingUpRecyclerView(it)
+            settingUpRecyclerView(it, onItemClick)
         }
     }
 
@@ -73,16 +74,34 @@ class HomeFragment : BaseFragment(), View.OnClickListener, DialogCancel {
         }
     }
 
-    private fun settingUpRecyclerView(notes: List<NotesDto>) {
-        binding.rvNotes.adapter = HomeAdapter(notes).also {
+    private fun settingUpRecyclerView(
+        notes: List<NotesDto>,
+        onItemClick: RecyclerItemClick<NotesDto>,
+    ) {
+        binding.rvNotes.adapter = HomeAdapter(notes, onItemClick).also {
             it.notifyDataSetChanged()
         }
     }
 
     override fun onCancel() {
         Log.e("aa", "i am called")
+        refresh()
+    }
+
+    private fun refresh() {
         binding.rvNotes.adapter?.notifyDataSetChanged()
         viewModels.getAllNotes()
         observer()
+    }
+
+    val onItemClick = object : RecyclerItemClick<NotesDto> {
+        override fun onClick(t: NotesDto) {
+            try {
+                viewModels.deleteNotes(notesDto = t)
+                refresh()
+            } catch (e: Exception) {
+                Log.e("error", e.message.toString())
+            }
+        }
     }
 }

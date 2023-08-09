@@ -94,6 +94,10 @@ class AddNoteSheet @Inject constructor() : BottomSheetDialogFragment(), View.OnC
 
     private fun cancelDialog() {
         dialogListener.onCancel()
+        binding.let {
+            it.addNoteEditText.text.clear()
+            it.addNoteTitleTextView.text.clear()
+        }
         dialog?.cancel()
     }
 
