@@ -2,4 +2,11 @@
     <string name="app_name">NoteApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fab">fab</string>
+    <string name="note">Note</string>
+    <string name="this_is_dummy">This is dummy test for testing and we are going to rock soon\n Areeb is very good boy hehehe :)</string>
+    <string name="title">Title</string>
+    <string name="add_notes">Add Notes</string>
+    <string name="write_your_notes">Write your notes</string>
+    <string name="save_notes">Save Notes</string>
 </resources>
