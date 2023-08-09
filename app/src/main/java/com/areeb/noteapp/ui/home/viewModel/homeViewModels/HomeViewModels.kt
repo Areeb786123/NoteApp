@@ -7,14 +7,15 @@ import androidx.lifecycle.viewModelScope
 import com.areeb.noteapp.data.models.entitiy.notes.NotesDto
 import com.areeb.noteapp.data.repository.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModels @Inject constructor(private val homeRepository: HomeRepository) : ViewModel() {
 
-    private var _notes = MutableLiveData<NotesDto>()
-    val notes: LiveData<NotesDto> get() = _notes
+    private var _notes = MutableLiveData<List<NotesDto>>()
+    val notes: LiveData<List<NotesDto>> get() = _notes
 
     fun addNotes(notesDto: NotesDto) {
         viewModelScope.launch {
@@ -30,7 +31,9 @@ class HomeViewModels @Inject constructor(private val homeRepository: HomeReposit
 
     fun getAllNotes() {
         viewModelScope.launch {
-            homeRepository.getAllNotes()
+            homeRepository.getAllNotes().collectLatest {
+                _notes.value = it
+            }
         }
     }
 }

@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNotes"
         android:layout_width="@dimen/size_0"
         android:layout_height="@dimen/size_0"
         android:layout_marginTop="@dimen/size_10"
