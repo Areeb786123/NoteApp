@@ -5,12 +5,8 @@ Happ/src/main/java/com/areeb/noteapp/ui/detail/activity/DetailActivity.kt,6/3/6
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 f
 6app/src/main/java/com/areeb/noteapp/MainApplication.kt,4/a/4a68afa20456633647cf5d68140778b40e3e8e44
-y
-Iapp/src/main/java/com/areeb/noteapp/data/models/entitiy/notes/NotesDto.kt,f/a/fa7e360e9fd20f028f068eceb15878ac2432f355
 t
 Dapp/src/main/java/com/areeb/noteapp/ui/base/fragment/BaseFragment.kt,a/d/ad25c9813305f608628688f5fbdd6bb11199eab4
-w
-Gapp/src/main/java/com/areeb/noteapp/ui/home/bottomSheet/AddNoteSheet.kt,b/1/b18170fa471f747980c1bbfcc70cf780548834f9
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 z

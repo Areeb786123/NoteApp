@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.areeb.noteapp.data.models.entitiy.notes.NotesDto
 import com.areeb.noteapp.databinding.FragmentHomeBinding
 import com.areeb.noteapp.ui.base.fragment.BaseFragment
+import com.areeb.noteapp.ui.common.DialogCancel
 import com.areeb.noteapp.ui.home.adapter.HomeAdapter
 import com.areeb.noteapp.ui.home.bottomSheet.AddNoteSheet
 import com.areeb.noteapp.ui.home.viewModel.homeViewModels.HomeViewModels
@@ -16,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment(), View.OnClickListener {
+class HomeFragment : BaseFragment(), View.OnClickListener, DialogCancel {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModels: HomeViewModels by viewModels()
@@ -65,12 +67,22 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view?.id) {
             binding.addNote.id -> {
+                addNoteSheet.setListener(this)
                 activity?.supportFragmentManager?.let { addNoteSheet.show(it, TAG) }
             }
         }
     }
 
     private fun settingUpRecyclerView(notes: List<NotesDto>) {
-        binding.rvNotes.adapter = HomeAdapter(notes)
+        binding.rvNotes.adapter = HomeAdapter(notes).also {
+            it.notifyDataSetChanged()
+        }
+    }
+
+    override fun onCancel() {
+        Log.e("aa", "i am called")
+        binding.rvNotes.adapter?.notifyDataSetChanged()
+        viewModels.getAllNotes()
+        observer()
     }
 }
