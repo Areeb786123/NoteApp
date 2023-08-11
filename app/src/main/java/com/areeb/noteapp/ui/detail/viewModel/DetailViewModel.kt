@@ -28,8 +28,7 @@ class DetailViewModel @Inject constructor(private val homeRepository: HomeReposi
     }
 
     fun setNoteID(id: Long) {
-//        _noteId.value = id
-        Log.e("ll", id.toString())
+        _noteId.value = id
         findNoteById(id)
     }
 
