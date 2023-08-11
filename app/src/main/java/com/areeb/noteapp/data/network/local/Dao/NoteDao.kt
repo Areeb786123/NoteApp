@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.areeb.noteapp.data.models.entitiy.notes.NotesDto
-import com.areeb.noteapp.data.network.Resources
 
 @Dao
 interface NoteDao {
@@ -17,4 +17,10 @@ interface NoteDao {
 
     @Query("SELECT * FROM notesEntity")
     suspend fun getAllNotes(): List<NotesDto>
+
+    @Query("SELECT * FROM notesEntity WHERE id = :noteId")
+    suspend fun getNoteById(noteId: Long): NotesDto?
+
+    @Update
+    suspend fun updateNote(note: NotesDto)
 }

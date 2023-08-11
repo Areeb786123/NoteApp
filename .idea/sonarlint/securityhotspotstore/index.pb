@@ -1,15 +1,25 @@
 
-x
-Happ/src/main/java/com/areeb/noteapp/ui/detail/activity/DetailActivity.kt,6/3/63a2aaceeb773fd7e5966bc3bacd66e5d723279d
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 f
 6app/src/main/java/com/areeb/noteapp/MainApplication.kt,4/a/4a68afa20456633647cf5d68140778b40e3e8e44
 t
 Dapp/src/main/java/com/areeb/noteapp/ui/base/fragment/BaseFragment.kt,a/d/ad25c9813305f608628688f5fbdd6bb11199eab4
-z
-Japp/src/main/java/com/areeb/noteapp/ui/setting/fragment/SettingFragment.kt,d/e/de93f5414c179b490526431a6ae3fd3db3476205
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
+k
+;app/src/main/java/com/areeb/noteapp/di/ApplicationModule.kt,4/5/45fb8eac0cd0786bfc119c1525b71fef2339fe2e
+~
+Napp/src/main/java/com/areeb/noteapp/data/network/local/DataBase/AppDataBase.kt,8/0/806f59763507de035945a69d08cf21279db405d2
+m
+=app/src/main/java/com/areeb/noteapp/data/network/Resources.kt,8/b/8beeb4b5a88bf5c6e7628b75d78fe5fe3d8b130a
+z
+Japp/src/main/java/com/areeb/noteapp/ui/setting/fragment/SettingFragment.kt,d/e/de93f5414c179b490526431a6ae3fd3db3476205
+u
+Eapp/src/main/java/com/areeb/noteapp/data/repository/HomeRepository.kt,2/8/28a72340a7c354d87c0dcc23ec68fa34c0074dac
+m
+=app/src/main/java/com/areeb/noteapp/ui/common/DialogCancel.kt,3/8/3862e04a751e969174dfbb86f456ef304ddbd9f5
+y
+Iapp/src/main/java/com/areeb/noteapp/data/models/entitiy/notes/NotesDto.kt,f/a/fa7e360e9fd20f028f068eceb15878ac2432f355
+r
+Bapp/src/main/java/com/areeb/noteapp/ui/home/adapter/HomeAdapter.kt,2/0/201a02788e131e0234d04ee3ee9afd88323bd263
