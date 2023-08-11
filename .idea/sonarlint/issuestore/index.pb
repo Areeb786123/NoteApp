@@ -3,8 +3,6 @@
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 f
 6app/src/main/java/com/areeb/noteapp/MainApplication.kt,4/a/4a68afa20456633647cf5d68140778b40e3e8e44
-t
-Dapp/src/main/java/com/areeb/noteapp/ui/base/fragment/BaseFragment.kt,a/d/ad25c9813305f608628688f5fbdd6bb11199eab4
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 m
@@ -13,8 +11,6 @@ m
 Napp/src/main/java/com/areeb/noteapp/data/network/local/DataBase/AppDataBase.kt,8/0/806f59763507de035945a69d08cf21279db405d2
 k
 ;app/src/main/java/com/areeb/noteapp/di/ApplicationModule.kt,4/5/45fb8eac0cd0786bfc119c1525b71fef2339fe2e
-z
-Japp/src/main/java/com/areeb/noteapp/ui/setting/fragment/SettingFragment.kt,d/e/de93f5414c179b490526431a6ae3fd3db3476205
 m
 =app/src/main/java/com/areeb/noteapp/ui/common/DialogCancel.kt,3/8/3862e04a751e969174dfbb86f456ef304ddbd9f5
 y

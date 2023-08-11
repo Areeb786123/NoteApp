@@ -25,13 +25,14 @@
 
     <ImageView
         android:id="@+id/editBtn"
-        android:layout_width="@dimen/size_50"
-        android:layout_height="@dimen/size_50"
-        android:layout_marginTop="@dimen/size_14"
+        android:layout_width="@dimen/size_40"
+        android:layout_height="@dimen/size_40"
+        android:layout_marginTop="@dimen/size_18"
         android:layout_marginEnd="@dimen/size_20"
         android:src="@drawable/ic_edit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/dark_purple" />
 
     <EditText
         android:id="@+id/notesDetailEditText"
@@ -46,6 +47,8 @@
         android:focusableInTouchMode="false"
         android:gravity="top"
         android:padding="@dimen/size_20"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/llOptions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
