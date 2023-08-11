@@ -36,6 +36,7 @@ class HomeRepository @Inject constructor(private val appDataBase: AppDataBase) {
 
     suspend fun updateNote(note: NotesDto) {
         try {
+            Log.e("chh", note.toString())
             appDataBase.noteDao().updateNote(note)
         } catch (e: Exception) {
             Log.e("error", e.message.toString())

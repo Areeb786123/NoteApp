@@ -21,6 +21,7 @@ import java.lang.Exception
 @AndroidEntryPoint
 class DetailFragment : Fragment(), View.OnClickListener {
 
+    private var noteId: Long = 0L
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModels: DetailViewModel by activityViewModels()
@@ -45,6 +46,9 @@ class DetailFragment : Fragment(), View.OnClickListener {
     }
 
     private fun observer() {
+        viewModels.noteId.observe(viewLifecycleOwner) {
+            noteId = it
+        }
         viewModels.note.observe(viewLifecycleOwner) {
             addData(it)
         }
@@ -80,6 +84,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
     private fun updateNote() {
         val updateNote = NotesDto(
+            id = noteId,
             title = binding.titleEditText.text.toString(),
             notes = binding.notesDetailEditText.text.toString(),
         )
@@ -90,6 +95,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 Toast.makeText(requireContext(), "please add title", Toast.LENGTH_SHORT).show()
             } else {
                 viewModels.updateNotes(updateNote)
+                redirectToMainScreen()
             }
         } catch (e: Exception) {
             Toast.makeText(requireContext(), "some error occur", Toast.LENGTH_SHORT).show()
@@ -108,10 +114,6 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
                 it.updateNoteBtn.id -> {
                     updateNote()
-                    val handler = Handler(Looper.myLooper()!!)
-                    handler.postDelayed({
-                        MainActivity.startMainActivity(requireContext())
-                    }, 500)
                 }
 
                 it.cancelBtn.id -> {
@@ -146,5 +148,12 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 isFocusableInTouchMode = isEnable
             }
         }
+    }
+
+    private fun redirectToMainScreen() {
+        val handler = Handler(Looper.myLooper()!!)
+        handler.postDelayed({
+            MainActivity.startMainActivity(requireContext())
+        }, 100)
     }
 }
