@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.activity.DetailActivity">
 
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
         android:name="com.areeb.noteapp.ui.detail.fragment.DetailFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="274dp"
-        tools:layout_editor_absoluteY="138dp" />
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

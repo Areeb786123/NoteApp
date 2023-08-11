@@ -13,6 +13,7 @@ class HomeViewHolder(private val binding: ItemsNotesBinding) :
     View.OnClickListener {
     init {
         binding.deleteNoteBtn.setOnClickListener(this)
+        binding.notesLayout.setOnClickListener(this)
     }
 
     private lateinit var noteDto: NotesDto
@@ -44,7 +45,8 @@ class HomeViewHolder(private val binding: ItemsNotesBinding) :
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            binding.deleteNoteBtn.id -> listener.onClick(noteDto)
+            binding.deleteNoteBtn.id -> listener.onDelete(noteDto)
+            binding.notesLayout.id -> listener.onClick(noteDto)
         }
     }
 }

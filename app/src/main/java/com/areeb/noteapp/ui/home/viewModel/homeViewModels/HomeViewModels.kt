@@ -16,8 +16,6 @@ class HomeViewModels @Inject constructor(private val homeRepository: HomeReposit
 
     private var _notes = MutableLiveData<List<NotesDto>>()
     val notes: LiveData<List<NotesDto>> get() = _notes
-    private var _note = MutableLiveData<NotesDto>()
-    val note: LiveData<NotesDto> get() = _note
 
     fun addNotes(notesDto: NotesDto) {
         viewModelScope.launch {
@@ -35,20 +33,6 @@ class HomeViewModels @Inject constructor(private val homeRepository: HomeReposit
         viewModelScope.launch {
             homeRepository.getAllNotes().collectLatest {
                 _notes.value = it
-            }
-        }
-    }
-
-    fun updateNotes(notes: NotesDto) {
-        viewModelScope.launch {
-            homeRepository.updateNote(notes)
-        }
-    }
-
-    fun findNoteById(noteId: Long) {
-        viewModelScope.launch {
-            homeRepository.getNoteById(noteId).collectLatest {
-                _note.value = it
             }
         }
     }

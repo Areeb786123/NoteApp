@@ -11,11 +11,11 @@ import com.areeb.noteapp.databinding.FragmentHomeBinding
 import com.areeb.noteapp.ui.base.fragment.BaseFragment
 import com.areeb.noteapp.ui.common.DialogCancel
 import com.areeb.noteapp.ui.common.RecyclerItemClick
+import com.areeb.noteapp.ui.detail.activity.DetailActivity
 import com.areeb.noteapp.ui.home.adapter.HomeAdapter
 import com.areeb.noteapp.ui.home.bottomSheet.AddNoteSheet
 import com.areeb.noteapp.ui.home.viewModel.homeViewModels.HomeViewModels
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.Exception
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -55,7 +55,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener, DialogCancel {
 
     private fun observer() {
         viewModels.notes.observe(viewLifecycleOwner) {
-            Log.e("cc", it.toString())
             if (!it.isNullOrEmpty()) {
                 binding.emptyValueAnimation.visibility = View.GONE
             } else {
@@ -96,6 +95,14 @@ class HomeFragment : BaseFragment(), View.OnClickListener, DialogCancel {
 
     val onItemClick = object : RecyclerItemClick<NotesDto> {
         override fun onClick(t: NotesDto) {
+            try {
+                DetailActivity.startDetailActivity(t.id, requireContext())
+            } catch (e: Exception) {
+                Log.e("error", e.message.toString())
+            }
+        }
+
+        override fun onDelete(t: NotesDto) {
             try {
                 viewModels.deleteNotes(notesDto = t)
                 refresh()

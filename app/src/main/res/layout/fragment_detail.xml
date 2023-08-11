@@ -12,6 +12,9 @@
         android:layout_height="@dimen/size_60"
         android:layout_marginHorizontal="@dimen/size_14"
         android:layout_marginTop="@dimen/size_14"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:textSize="@dimen/font_28"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,13 +41,56 @@
         android:layout_marginTop="@dimen/size_14"
         android:layout_marginBottom="@dimen/size_20"
         android:background="@drawable/bottom_sheet_background"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:gravity="top"
         android:padding="@dimen/size_20"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/llOptions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleEditText"
         tools:text="text will appear here" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/cancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/size_20"
+            android:paddingHorizontal="@dimen/size_12"
+            android:text="@string/cancel"
+            android:textSize="@dimen/font_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/updateNoteBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/updateNoteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/size_20"
+            android:paddingHorizontal="@dimen/size_20"
+            android:text="@string/update_note"
+            android:textSize="@dimen/font_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cancelBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
