@@ -25,7 +25,7 @@
         android:hint="@string/add_your_title"
         android:padding="@dimen/size_10"
         android:textSize="@dimen/font_18"
-        app:layout_constraintTop_toBottomOf="@+id/cancelDialog" />
+        app:layout_constraintTop_toBottomOf="@+id/saveNoteBtn" />
 
 
     <EditText
@@ -34,25 +34,26 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/size_14"
         android:layout_marginTop="@dimen/size_20"
+        android:layout_marginBottom="@dimen/size_20"
         android:background="@drawable/bottom_sheet_background"
         android:hint="@string/write_your_notes"
         android:paddingHorizontal="@dimen/size_20"
         android:paddingVertical="@dimen/size_30"
         android:textColor="@color/white"
+        android:textColorHint="@color/black"
         android:textSize="@dimen/font_16"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addNoteTitleTextView" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/saveNoteBtn"
         android:layout_width="@dimen/size_140"
         android:layout_height="@dimen/size_60"
-        android:layout_marginTop="@dimen/size_40"
         android:paddingHorizontal="@dimen/size_20"
         android:text="@string/save_notes"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/dark_purple"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addNoteEditText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
