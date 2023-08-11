@@ -12,4 +12,7 @@
     <string name="save_notes">Save Notes</string>
     <string name="cancel">Cancel</string>
     <string name="update_note">Update Note</string>
+    <string name="setting">Setting</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="image">image</string>
 </resources>

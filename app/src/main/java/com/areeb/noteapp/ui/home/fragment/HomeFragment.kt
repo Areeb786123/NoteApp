@@ -15,6 +15,7 @@ import com.areeb.noteapp.ui.detail.activity.DetailActivity
 import com.areeb.noteapp.ui.home.adapter.HomeAdapter
 import com.areeb.noteapp.ui.home.bottomSheet.AddNoteSheet
 import com.areeb.noteapp.ui.home.viewModel.homeViewModels.HomeViewModels
+import com.areeb.noteapp.utils.sharedPrefernces.SharedPreferences
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -46,6 +47,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener, DialogCancel {
         super.onViewCreated(view, savedInstanceState)
         init()
         observer()
+        enableOrDisableDarkMode(SharedPreferences.getDarkModeValue(requireContext()))
     }
 
     private fun init() {
